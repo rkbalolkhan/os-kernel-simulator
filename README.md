@@ -1,4 +1,4 @@
-#🖥️ OS Kernel Simulator
+# 🖥️ OS Kernel Simulator #
 📌 Project Overview
 The OS Kernel Simulator is a C++-based project that simulates essential operating system functionalities, including:
 
