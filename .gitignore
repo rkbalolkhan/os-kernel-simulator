@@ -1,0 +1,26 @@
+# Compiled object files
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+
+# Build files
+/build/
+/bin/
+/dist/
+/CMakeFiles/
+/Makefile
+CMakeCache.txt
+
+# Editor/IDE specific files
+.vscode/
+*.swp
+*.swo
+*.sln
+*.vcxproj*
+*.ncb
+*.opendb
+.idea/
