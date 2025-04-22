@@ -4,33 +4,69 @@
 #include <iostream>
 #include <vector>
 
+void inputProcesses(std::vector<Process> &processes)
+{
+    int n;
+    std::cout << "Enter the number of processes: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; ++i)
+    {
+        int pid, arrival, burst, priority;
+        std::cout << "Enter Process ID, Arrival Time, Burst Time, and Priority for Process " << i + 1 << ": ";
+        std::cin >> pid >> arrival >> burst >> priority;
+        processes.emplace_back(pid, arrival, burst, priority);
+    }
+}
+
 int main()
 {
-    std::vector<Process> processes = {
-        {1, 0, 5, 2}, {2, 1, 3, 1}, {3, 2, 8, 3}, {4, 3, 6, 2}};
+    std::vector<Process> processes;
+    inputProcesses(processes);
 
-    std::cout << "Before Scheduling:\n";
-    displayProcesses(processes);
+    std::cout << "\nSelect Scheduling Algorithm:\n";
+    std::cout << "1. First Come First Serve (FCFS)\n";
+    std::cout << "2. Shortest Job First (SJF)\n";
+    std::cout << "3. Round Robin (RR)\n";
+    std::cout << "4. Priority Scheduling\n";
+    int choice;
+    std::cin >> choice;
 
-    // FCFS Scheduling
-    FCFS_Scheduling(processes);
-    std::cout << "\nAfter FCFS Scheduling:\n";
-    displayProcesses(processes);
+    switch (choice)
+    {
+    case 1:
+        FCFS_Scheduling(processes);
+        std::cout << "\nAfter FCFS Scheduling:\n";
+        displayProcesses(processes);
+        break;
 
-    // SJF Scheduling
-    SJF_Scheduling(processes);
-    std::cout << "\nAfter SJF Scheduling:\n";
-    displayProcesses(processes);
+    case 2:
+        SJF_Scheduling(processes);
+        std::cout << "\nAfter SJF Scheduling:\n";
+        displayProcesses(processes);
+        break;
 
-    // Round Robin Scheduling
-    RoundRobin_Scheduling(processes, 2);
-    std::cout << "\nAfter Round Robin Scheduling:\n";
-    displayProcesses(processes);
+    case 3:
+    {
+        int time_quantum;
+        std::cout << "Enter Time Quantum for Round Robin: ";
+        std::cin >> time_quantum;
+        RoundRobin_Scheduling(processes, time_quantum);
+        std::cout << "\nAfter Round Robin Scheduling:\n";
+        displayProcesses(processes);
+        break;
+    }
 
-    // Priority Scheduling
-    Priority_Scheduling(processes);
-    std::cout << "\nAfter Priority Scheduling:\n";
-    displayProcesses(processes);
+    case 4:
+        Priority_Scheduling(processes);
+        std::cout << "\nAfter Priority Scheduling:\n";
+        displayProcesses(processes);
+        break;
+
+    default:
+        std::cout << "Invalid choice!\n";
+        break;
+    }
 
     return 0;
 }
