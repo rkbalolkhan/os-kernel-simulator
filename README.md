@@ -1,9 +1,9 @@
 # 🖥️ OS Kernel Simulator
 ## 📌 Project Overview
 The OS Kernel Simulator is a C++-based project that simulates essential operating system functionalities, including:   
-⋅⋅* 🟢 Process Management – Handles process creation, execution, and state transitions.   
-⋅⋅* 🔵 CPU Scheduling – Implements multiple scheduling algorithms.   
-⋅⋅* 🔴 Performance Analysis – Displays process execution order, waiting time, and turnaround time.   
+- 🟢 Process Management – Handles process creation, execution, and state transitions.   
+- 🔵 CPU Scheduling – Implements multiple scheduling algorithms.   
+- 🔴 Performance Analysis – Displays process execution order, waiting time, and turnaround time.   
 
 ## 🚀 Features
 ### 🛠️ Process Management
