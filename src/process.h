@@ -8,8 +8,9 @@ struct Process
     int burst_time;
     int waiting_time;
     int turnaround_time;
+    int priority;
 
-    Process(int id, int arrival, int burst);
+    Process(int id, int arrival, int burst, int prio = 0);
 };
 
 #endif
