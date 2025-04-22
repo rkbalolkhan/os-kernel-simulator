@@ -1,24 +1,24 @@
 # 🖥️ OS Kernel Simulator
 ## 📌 Project Overview
-The OS Kernel Simulator is a C++-based project that simulates essential operating system functionalities, including: <br>
-⋅⋅* 🟢 Process Management – Handles process creation, execution, and state transitions. <br>
-⋅⋅* 🔵 CPU Scheduling – Implements multiple scheduling algorithms. <br>
-⋅⋅* 🔴 Performance Analysis – Displays process execution order, waiting time, and turnaround time. <br>
+The OS Kernel Simulator is a C++-based project that simulates essential operating system functionalities, including:   
+⋅⋅* 🟢 Process Management – Handles process creation, execution, and state transitions.   
+⋅⋅* 🔵 CPU Scheduling – Implements multiple scheduling algorithms.   
+⋅⋅* 🔴 Performance Analysis – Displays process execution order, waiting time, and turnaround time.   
 
 ## 🚀 Features
 ### 🛠️ Process Management
-- ✔️ Uses Process Control Block (PCB) to store process details. <br>
-- ✔️ Simulates state transitions: <br>
-        `NEW → READY → RUNNING → TERMINATED` <br>
+- ✔️ Uses Process Control Block (PCB) to store process details.   
+- ✔️ Simulates state transitions:   
+        `NEW → READY → RUNNING → TERMINATED`   
 
 ### 🎯 CPU Scheduling Algorithms
-- ✔️ First Come First Serve (FCFS) <br>
-- ✔️ Shortest Job First (SJF) <br>
-- ✔️ Round Robin (RR) <br>
+- ✔️ First Come First Serve (FCFS)   
+- ✔️ Shortest Job First (SJF)   
+- ✔️ Round Robin (RR)   
 
 ### 📊 Execution & Statistics
-- ✔️ Simulates real-time execution using sleep(). <br>
-- ✔️ Displays waiting time, turnaround time, and CPU utilization. <br>
+- ✔️ Simulates real-time execution using sleep().   
+- ✔️ Displays waiting time, turnaround time, and CPU utilization.   
 
 ## ⚙️ Technology Stack
 
@@ -57,19 +57,19 @@ g++ main.cpp -o kernel_simulator
  ┗ 📄 os_kernel_simulator   # Compiled output
 ```
 ## 📈 Future Enhancements
--🔹 Add Priority Scheduling & Multilevel Queue Scheduling <br>
--🔹 Implement Memory Management (Paging, Segmentation) <br>
--🔹 Develop a Graphical User Interface (GUI) <br>
+-🔹 Add Priority Scheduling & Multilevel Queue Scheduling   
+-🔹 Implement Memory Management (Paging, Segmentation)   
+-🔹 Develop a Graphical User Interface (GUI)   
 
 ## 🤝 Contributing
-🔹 Contributions are welcome! Follow these steps: <br>
-1. Fork the [repository](https://github.com/rkbalolkhan/os-kernel-simulator) <br>
-2. Create a new branch (`feature-xyz`) <br>
-3. Commit your changes (`git commit -m "Added new feature"`) <br>
-4. Push to your branch (`git push origin feature-xyz`) <br>
-5. Create a Pull Request <br>
+🔹 Contributions are welcome! Follow these steps:   
+1. Fork the [repository](https://github.com/rkbalolkhan/os-kernel-simulator)   
+2. Create a new branch (`feature-xyz`)   
+3. Commit your changes (`git commit -m "Added new feature"`)   
+4. Push to your branch (`git push origin feature-xyz`)   
+5. Create a Pull Request   
 
-📩 Feel free to open issues and suggest improvements! <br>
+📩 Feel free to open issues and suggest improvements!   
 
 ## 📄 License
 🔖 This project is open-source under the MIT License.
