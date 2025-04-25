@@ -4,6 +4,6 @@
 #include "process.h"
 #include <vector>
 
-void displayProcesses(const std::vector<Process> &processes);
+void displayProcesses(const std::vector<Process> &processes, bool show_priority = false);
 
 #endif

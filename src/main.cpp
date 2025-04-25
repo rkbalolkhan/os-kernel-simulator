@@ -29,6 +29,9 @@ int main()
     std::cout << "2. Shortest Job First (SJF)\n";
     std::cout << "3. Round Robin (RR)\n";
     std::cout << "4. Priority Scheduling\n";
+    std::cout << "5. Highest Response Ratio Next (HRRN)\n";
+    std::cout << "6. Multiple Queue Scheduling\n";
+    std::cout << "7. Multilevel Feedback Queue Scheduling\n";
     int choice;
     std::cin >> choice;
 
@@ -60,8 +63,38 @@ int main()
     case 4:
         Priority_Scheduling(processes);
         std::cout << "\nAfter Priority Scheduling:\n";
+        displayProcesses(processes, true);
+        break;
+
+    case 5:
+        HRRN_Scheduling(processes);
+        std::cout << "\nAfter HRRN Scheduling:\n";
         displayProcesses(processes);
         break;
+
+    case 6:
+    {
+        std::vector<std::vector<Process>> queues = {{processes.begin(), processes.begin() + processes.size() / 2},
+                                                    {processes.begin() + processes.size() / 2, processes.end()}};
+        MultipleQueue_Scheduling(queues);
+        std::cout << "\nAfter Multiple Queue Scheduling:\n";
+        for (const auto &queue : queues)
+            displayProcesses(queue);
+        break;
+    }
+
+    case 7:
+    {
+        int num_queues, time_quantum;
+        std::cout << "Enter number of queues: ";
+        std::cin >> num_queues;
+        std::cout << "Enter time quantum: ";
+        std::cin >> time_quantum;
+        MultilevelFeedbackQueue_Scheduling(processes, num_queues, time_quantum);
+        std::cout << "\nAfter Multilevel Feedback Queue Scheduling:\n";
+        displayProcesses(processes);
+        break;
+    }
 
     default:
         std::cout << "Invalid choice!\n";
