@@ -32,6 +32,7 @@ int main()
     std::cout << "5. Highest Response Ratio Next (HRRN)\n";
     std::cout << "6. Multiple Queue Scheduling\n";
     std::cout << "7. Multilevel Feedback Queue Scheduling\n";
+    std::cout << "8. Multilevel Queue Scheduling\n";
     int choice;
     std::cin >> choice;
 
@@ -93,6 +94,37 @@ int main()
         MultilevelFeedbackQueue_Scheduling(processes, num_queues, time_quantum);
         std::cout << "\nAfter Multilevel Feedback Queue Scheduling:\n";
         displayProcesses(processes);
+        break;
+    }
+
+    case 8:
+    {
+        std::vector<std::vector<Process>> queues = {{}, {}};
+        std::vector<int> priorities = {1, 2}; // Higher priority = lower number
+
+        for (const auto &p : processes)
+        {
+            if (p.priority <= 2)
+                queues[0].push_back(p);
+            else
+                queues[1].push_back(p);
+        }
+
+        MultilevelQueue_Scheduling(queues, priorities);
+        std::cout << "\nAfter Multilevel Queue Scheduling:\n";
+
+        for (size_t i = 0; i < queues.size(); ++i)
+        {
+            if (!queues[i].empty()) // Check if the queue is not empty
+            {
+                std::cout << "Queue " << i + 1 << ":\n";
+                displayProcesses(queues[i], true);
+            }
+            else
+            {
+                std::cout << "Queue " << i + 1 << " is empty.\n";
+            }
+        }
         break;
     }
 

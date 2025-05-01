@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <queue>
 #include <iostream>
+#include <numeric>
 #include <climits>
 
 void FCFS_Scheduling(std::vector<Process> &processes)
@@ -146,11 +147,19 @@ void MultilevelQueue_Scheduling(std::vector<std::vector<Process>> &queues, const
 {
     int current_time = 0;
 
-    for (size_t i = 0; i < queues.size(); ++i)
-    {
-        auto &queue = queues[i];
-        int priority = priorities[i];
+    std::vector<int> order(queues.size());
+    std::iota(order.begin(), order.end(), 0);
 
+    std::sort(order.begin(), order.end(), [&](int a, int b)
+              {
+                  return priorities[a] < priorities[b]; // lower number = higher priority
+              });
+
+    for (int idx : order)
+    {
+        auto &queue = queues[idx];
+
+        // Sort processes within the queue by arrival time
         std::sort(queue.begin(), queue.end(), [](const Process &a, const Process &b)
                   { return a.arrival_time < b.arrival_time; });
 
@@ -161,7 +170,7 @@ void MultilevelQueue_Scheduling(std::vector<std::vector<Process>> &queues, const
 
             process.waiting_time = current_time - process.arrival_time;
             process.turnaround_time = process.waiting_time + process.burst_time;
-            process.completion_time = current_time + process.burst_time; 
+            process.completion_time = current_time + process.burst_time;
             current_time += process.burst_time;
         }
     }
